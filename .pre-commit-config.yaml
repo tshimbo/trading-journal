@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: no-emoji
+        name: no emojis
+        entry: python scripts/check_no_emoji.py
+        language: system
+        pass_filenames: false
