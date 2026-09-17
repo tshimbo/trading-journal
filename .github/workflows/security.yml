@@ -12,7 +12,7 @@ jobs:
     name: Secret scan (gitleaks)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Scan full git history for secrets
@@ -25,7 +25,7 @@ jobs:
     name: No committed .env files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Fail if any .env file is tracked
         run: |
           if git ls-files | grep -E '(^|/)\.env($|\.)' | grep -v -E '\.env\.example$'; then
@@ -37,8 +37,8 @@ jobs:
     name: No emojis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: python scripts/check_no_emoji.py
