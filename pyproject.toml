@@ -4,8 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trading-journal"
-version = "0.1.0"
-description = "Log trades, compute FIFO profit and loss, and backtest simple strategies. Built test-first."
+version = "1.0.0"
+description = "Paper-trading journal: FIFO P&L for long and short positions, performance stats, price data, and an SMA backtest."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Terry Shim" }]
 requires-python = ">=3.11"
 dependencies = []
 
@@ -20,7 +23,10 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --strict-markers --cov=trading_journal --cov-report=term-missing --cov-fail-under=90"
+addopts = "-q --strict-markers --cov=trading_journal --cov-report=term-missing --cov-fail-under=95"
+
+[tool.coverage.run]
+omit = ["src/trading_journal/__main__.py"]
 
 [tool.ruff]
 line-length = 100
