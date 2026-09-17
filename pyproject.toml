@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trading-journal"
+version = "0.1.0"
+description = "Log trades, compute FIFO profit and loss, and backtest simple strategies. Built test-first."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "pytest-cov==7.1.0", "hypothesis==6.168.0", "ruff==0.16.8", "mypy==2.3.1"]
+
+[project.scripts]
+tj = "trading_journal.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --cov=trading_journal --cov-report=term-missing --cov-fail-under=90"
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+strict = true

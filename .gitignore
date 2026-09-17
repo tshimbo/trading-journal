@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+data/trades.csv
+.env
